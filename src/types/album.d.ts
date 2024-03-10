@@ -4,3 +4,10 @@ export type AlbumType = {
     userId: number;
 
 }
+
+
+export type LikedAlbumType = {
+    userId: number;
+    album: AlbumType;
+    photoId: number;
+  };

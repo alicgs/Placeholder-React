@@ -1,11 +1,14 @@
-import { Col } from "react-bootstrap";
 
-const AlbumPhoto = ({photo} : {photo: {url: string}}) => {
+
+const AlbumPhoto = ({ photo }: { photo: { url: string; id: number } }) => {
   return (
     <>
-        <Col sm={2}>
-              <img className="w-100 h-100" src={photo.url} alt="" />
-            </Col>
+        <img
+          className="w-100"
+          style={{ height: "80%" }}
+          src={photo.url}
+          alt=""
+        />
     </>
   );
 };
