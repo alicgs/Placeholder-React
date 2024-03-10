@@ -8,6 +8,7 @@ import { getCommentsById } from "./requests/getCommentsById";
 import AlbumPage from "./pages/Albumpage";
 import { getAlbumById } from "./requests/getAlbumById";
 import { getPhotosById } from "./requests/getPhotosById";
+import FavouritePage from "./pages/FavoritePage";
 
 const Router = createBrowserRouter([
   {
@@ -54,7 +55,11 @@ const Router = createBrowserRouter([
         photos: photosData,
       }
     }
-  }
+  },
+  {
+    path:"/favourites",
+    element: <FavouritePage/>,
+  },
 ]);
 
 export default Router;

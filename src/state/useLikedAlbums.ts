@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { LikedAlbumType } from "../types/album";
-import { devtools } from "zustand/middleware";
+import { createJSONStorage, devtools, persist } from "zustand/middleware";
 
 type StateType = {
   likedAlbums: LikedAlbumType[];
@@ -8,10 +8,20 @@ type StateType = {
 };
 
 const useLikedAlbums = create<StateType>()(
-  devtools((set) => ({
-    likedAlbums: [],
-    setLikedAlbums: (likedAlbums) => set({ likedAlbums }),
-  }))
+  devtools(
+    persist((set, get) => ({
+      likedAlbums: [],
+      setLikedAlbums: (likedAlbums) => set({ likedAlbums }),
+      likedCount: get?.()?.likedAlbums?.length ?? 0,
+    }), {
+      name: "liked-album-storage",
+      storage: createJSONStorage(() => sessionStorage),
+    }))
 );
+
+export const useLikedCount = () => {
+  const { likedAlbums } = useLikedAlbums();
+  return likedAlbums.length;
+};
 
 export default useLikedAlbums;

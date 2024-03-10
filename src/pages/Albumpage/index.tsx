@@ -38,6 +38,7 @@ const AlbumPage = () => {
                         album: pageData.album,
                         photoId: photo.id,
                         userId: pageData.user.id,
+                        photoUrl: photo.url,
                       },
                     ]);
                   }
