@@ -10,7 +10,7 @@ const FavouritePage = () => {
   return (
     <div>
       {likedAlbums.map((likedAlbum) => (
-        <div key={likedAlbum.photoId}> /* Eğer her bir likedAlbum benzersiz bir photoId'ye sahipse */
+        <div key={likedAlbum.photoId}> { /* Eğer her bir likedAlbum benzersiz bir photoId'ye sahipse  */}
           <FaTrash
             onClick={() => {
               setLikedAlbums(
