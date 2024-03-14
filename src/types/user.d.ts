@@ -1,5 +1,4 @@
 export interface UserType {
-    map(arg0: (user: unknown) => import("react/jsx-runtime").JSX.Element): import("react").ReactNode
     id: number
     name: string
     username: string
